@@ -46,20 +46,20 @@ class ScaffoldWithBottomNav extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: child,
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _calculateSelectedIndex(context),
-        onTap: (int idx) => _onItemTapped(idx, context),
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: '订阅',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: '设置',
-          ),
-        ],
-      ),
+      // bottomNavigationBar: BottomNavigationBar(
+      //   currentIndex: _calculateSelectedIndex(context),
+      //   onTap: (int idx) => _onItemTapped(idx, context),
+      //   items: const [
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.list),
+      //       label: '订阅',
+      //     ),
+      //     BottomNavigationBarItem(
+      //       icon: Icon(Icons.settings),
+      //       label: '设置',
+      //     ),
+      //   ],
+      // ),
     );
   }
 
