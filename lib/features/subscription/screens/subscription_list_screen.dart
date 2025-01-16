@@ -24,49 +24,53 @@ void showBasicBottomSheet(BuildContext context) {
         ),
         child: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                // 左侧取消按钮
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: Text(
-                    '取消',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey[600],
+            Container(
+              padding: EdgeInsets.symmetric(horizontal: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // 左侧取消按钮
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text(
+                      '取消',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.grey[600],
+                      ),
                     ),
                   ),
-                ),
 
-                // 中间标题
-                Text(
-                  '选择选项',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-
-                // 右侧确定按钮
-                TextButton(
-                  onPressed: () {
-                    // 处理确定操作
-                    Navigator.pop(context, 'confirm');
-                  },
-                  child: Text(
-                    '确定',
+                  // 中间标题
+                  Text(
+                    '选择选项',
                     style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.blue,
-                      fontWeight: FontWeight.w500,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                ),
-              ],
+
+                  // 右侧确定按钮
+                  TextButton(
+                    onPressed: () {
+                      // 处理确定操作
+                      Navigator.pop(context, 'confirm');
+                    },
+                    child: Text(
+                      '确定',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.blue,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
+            Divider(height: 1, color: Colors.grey[300]),
           ],
         ),
       );
