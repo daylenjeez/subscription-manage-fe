@@ -1,80 +1,29 @@
 // 类名使用 PascalCase
 import 'package:flutter/material.dart';
+import '../../../shared/widgets/bottom_sheet.dart';
 
-// 显示底部弹窗的方法
-void showBasicBottomSheet(BuildContext context) {
-  showModalBottomSheet(
+// 显示底部弹窗
+void _showBottomSheet(BuildContext context) async {
+  final result = await AppBottomSheet.show(
     context: context,
-    isScrollControlled: true,
-    builder: (BuildContext context) {
-      // 获取屏幕高度
-      final screenHeight = MediaQuery.of(context).size.height;
-      // 获取AppBar高度
-      final appBarHeight = AppBar().preferredSize.height;
-
-      // 计算实际可用高度（屏幕高度 - 状态栏 - AppBar）
-      final availableHeight = screenHeight - appBarHeight;
-
-      return Container(
-        height: availableHeight,
-        width: double.infinity,
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(16),
-          ),
-        ),
-        child: Column(
-          children: [
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 8),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  // 左侧取消按钮
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text(
-                      '取消',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                  ),
-
-                  // 中间标题
-                  Text(
-                    '选择选项',
-                    style: TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-
-                  // 右侧确定按钮
-                  TextButton(
-                    onPressed: () {
-                      // 处理确定操作
-                      Navigator.pop(context, 'confirm');
-                    },
-                    child: Text(
-                      '确定',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.blue,
-                        fontWeight: FontWeight.w500,
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Divider(height: 1, color: Colors.grey[300]),
-          ],
-        ),
-      );
+    title: '新建订阅',
+    child: ListView.builder(
+      padding: EdgeInsets.symmetric(horizontal: 16),
+      itemCount: 10,
+      itemBuilder: (context, index) {
+        return ListTile(
+          title: Text('选项 ${index + 1}'),
+          onTap: () {
+            Navigator.pop(context, index);
+          },
+        );
+      },
+    ),
+    onCancel: () {
+      print('取消');
+    },
+    onConfirm: (value) {
+      print('确认');
     },
   );
 }
@@ -92,8 +41,8 @@ class SubscriptionListScreen extends StatelessWidget {
       ),
       body: Center(
         child: ElevatedButton(
-          onPressed: () => showBasicBottomSheet(context),
-          child: Text('显示底部弹窗'),
+          onPressed: () => _showBottomSheet(context),
+          child: Text('新建订阅'),
         ),
       ),
     );
