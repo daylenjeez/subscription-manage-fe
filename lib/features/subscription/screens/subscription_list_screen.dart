@@ -1,4 +1,3 @@
-// 类名使用 PascalCase
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/bottom_sheet.dart';
 
