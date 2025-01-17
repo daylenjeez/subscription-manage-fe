@@ -14,6 +14,7 @@ void showBasicBottomSheet(BuildContext context) {
 
       // 计算实际可用高度（屏幕高度 - 状态栏 - AppBar）
       final availableHeight = screenHeight - appBarHeight;
+
       return Container(
         height: availableHeight,
         width: double.infinity,
