@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import '../../../shared/widgets/bottom_sheet.dart';
 
 // 显示底部弹窗
-void _showBottomSheet(BuildContext context) async {
-  final result = await AppBottomSheet.show(
+void _showBottomSheet(BuildContext context) {
+  AppBottomSheet.show(
     context: context,
     title: '新建订阅',
     child: ListView.builder(
