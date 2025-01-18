@@ -25,10 +25,20 @@ class ServerSelectField extends StatelessWidget {
             ),
             child: Row(
               children: [
-                Text('请选择服务名称',
-                    style: TextStyle(fontSize: 14, color: Color(0xFF9CA3AF))),
-                OverflowBar(
-                  children: [],
+                // 左侧文本
+                Expanded(
+                  child: Text(
+                    '请选择服务名称',
+                    style: TextStyle(
+                      fontSize: 14,
+                      color: Color(0xFF9CA3AF),
+                    ),
+                  ),
+                ),
+                // 右侧新增按钮
+                Container(
+                  margin: EdgeInsets.only(left: 8),
+                  child:
                 ),
               ],
             ),
