@@ -1,23 +1,13 @@
 import 'package:flutter/material.dart';
 import '../../../shared/widgets/bottom_sheet.dart';
+import '../widgets/create_subscription_form.dart';
 
 // 显示底部弹窗
 void _showBottomSheet(BuildContext context) {
   AppBottomSheet.show(
     context: context,
     title: '新建订阅',
-    child: ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 16),
-      itemCount: 10,
-      itemBuilder: (context, index) {
-        return ListTile(
-          title: Text('选项 ${index + 1}'),
-          onTap: () {
-            Navigator.pop(context, index);
-          },
-        );
-      },
-    ),
+    child: CreateSubscriptionForm(),
     onCancel: () {
       print('取消');
     },

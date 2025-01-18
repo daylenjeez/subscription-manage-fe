@@ -37,7 +37,7 @@ class AppBottomSheet extends StatelessWidget {
     return showModalBottomSheet<T>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Colors.white,
+      backgroundColor: Color(0xFFFAFAFA),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(16),
@@ -71,8 +71,7 @@ class AppBottomSheet extends StatelessWidget {
           // 顶部导航栏
           Container(
             padding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 8,
+              horizontal: 8,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

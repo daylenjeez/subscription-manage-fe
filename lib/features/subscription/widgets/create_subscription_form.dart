@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:subscription_app/features/subscription/widgets/form_fields/server_select_field.dart';
 
 class CreateSubscriptionForm extends StatefulWidget {
   final Function(Map<String, dynamic>)? onSubmit;
@@ -15,6 +16,13 @@ class CreateSubscriptionForm extends StatefulWidget {
 class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+      child: Column(
+        children: [
+          ServerSelectField(),
+        ],
+      ),
+    );
   }
 }
