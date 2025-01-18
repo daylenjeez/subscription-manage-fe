@@ -1,4 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:subscription_app/features/subscription/widgets/service_select_sheet.dart';
+
+import '../../../../shared/widgets/bottom_sheet.dart';
+
+// 显示底部弹窗
+// 显示底部弹窗
+void _showServiceSelectSheet(BuildContext context) {
+  AppBottomSheet.show(
+    context: context,
+    title: '选择服务',
+    child: ServiceSelectSheet(),
+    onCancel: () {
+      print('取消');
+    },
+    onConfirm: (value) {
+      print('确认');
+    },
+  );
+}
 
 class ServerSelectField extends StatelessWidget {
   const ServerSelectField({super.key});
@@ -16,6 +35,9 @@ class ServerSelectField extends StatelessWidget {
           ),
         ),
         InkWell(
+          onTap: () {
+            _showServiceSelectSheet(context);
+          },
           child: Container(
             height: 44,
             padding: EdgeInsets.symmetric(horizontal: 16),
@@ -38,7 +60,11 @@ class ServerSelectField extends StatelessWidget {
                 // 右侧新增按钮
                 Container(
                   margin: EdgeInsets.only(left: 8),
-                  child:
+                  child: Icon(
+                    Icons.add_circle_outline,
+                    size: 20,
+                    color: Color(0xFF9CA3AF),
+                  ),
                 ),
               ],
             ),
