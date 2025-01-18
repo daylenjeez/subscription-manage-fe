@@ -128,7 +128,6 @@ class AppBottomSheet extends StatelessWidget {
           ),
 
           // 分割线
-          Divider(height: 1, color: Colors.grey[300]),
 
           // 内容区域
           if (child != null) Expanded(child: child!),
