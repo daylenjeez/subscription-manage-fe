@@ -37,7 +37,7 @@ class AppBottomSheet extends StatelessWidget {
     return showModalBottomSheet<T>(
       context: context,
       isScrollControlled: true,
-      backgroundColor: Color(0xFFFAFAFA),
+      backgroundColor: Colors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.vertical(
           top: Radius.circular(16),
