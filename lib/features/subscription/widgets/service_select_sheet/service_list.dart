@@ -1,6 +1,6 @@
 // lib/features/subscription/widgets/service_select_sheet.dart
 import 'package:flutter/material.dart';
-import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tag_list.dart';
+import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
 
 class ServiceSelectSheet extends StatelessWidget {
   const ServiceSelectSheet({super.key});
@@ -79,12 +79,7 @@ class ServiceSelectSheet extends StatelessWidget {
             ),
           ),
           // 服务列表
-          Expanded(
-            child: ListView(
-              padding: EdgeInsets.symmetric(horizontal: 16),
-              children: [],
-            ),
-          ),
+          // Expanded(),
         ],
       ),
     );
