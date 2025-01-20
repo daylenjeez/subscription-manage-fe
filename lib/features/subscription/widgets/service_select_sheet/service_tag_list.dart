@@ -69,6 +69,7 @@ class ServiceTagList extends StatelessWidget {
         itemBuilder: (context, index) {
           return ServiceTag(
             child: Text(tags[index]),
+            onTap: () => onTagSelected?.call(tags[index]),
           );
         },
       ),

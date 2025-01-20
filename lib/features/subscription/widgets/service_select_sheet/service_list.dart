@@ -71,6 +71,9 @@ class ServiceSelectSheet extends StatelessWidget {
                     '生活',
                     '其他',
                   ],
+                  onTagSelected: (tag) {
+                    print(tag);
+                  },
                 ),
               ],
             ),
