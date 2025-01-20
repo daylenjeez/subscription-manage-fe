@@ -50,11 +50,11 @@ class ServiceSelectSheet extends StatelessWidget {
                         hintText: '搜索服务',
                         hintStyle:
                             TextStyle(fontSize: 14, color: Color(0xFF627381)),
-                        prefixIcon: Icon(Icons.search),
+                        prefixIcon: Icon(Icons.search,
+                            size: 14, color: Color(0xFF627381)),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
                           vertical: 0, // 调整这个值来实现文字居中
-                          horizontal: 16,
                         ),
                       ),
                     ),
