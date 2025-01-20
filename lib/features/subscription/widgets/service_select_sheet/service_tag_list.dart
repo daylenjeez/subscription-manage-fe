@@ -58,21 +58,41 @@ class ServiceTagList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 28, // ServiceTag 的高度
-      padding: EdgeInsets.only(left: 16),
-      child: ListView.separated(
-        scrollDirection: Axis.horizontal, // 设置为横向滚动
-        itemCount: tags.length,
-        // 设置标签之间的间距
-        separatorBuilder: (context, index) => SizedBox(width: spacing),
-        itemBuilder: (context, index) {
-          return ServiceTag(
-            child: Text(tags[index]),
-            onTap: () => onTagSelected?.call(tags[index]),
-          );
-        },
+    return Stack(children: [
+      Container(
+        height: 28, // ServiceTag 的高度
+        padding: EdgeInsets.only(left: 16),
+        child: ListView.separated(
+          scrollDirection: Axis.horizontal, // 设置为横向滚动
+          itemCount: tags.length,
+          // 设置标签之间的间距
+          separatorBuilder: (context, index) => SizedBox(width: spacing),
+          itemBuilder: (context, index) {
+            return ServiceTag(
+              child: Text(tags[index]),
+              onTap: () => onTagSelected?.call(tags[index]),
+            );
+          },
+        ),
       ),
-    );
+      Positioned(
+        right: 0,
+        top: 0,
+        bottom: 0,
+        child: Container(
+          width: 32, // 渐变区域宽度
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.centerRight,
+              end: Alignment.centerLeft,
+              colors: [
+                Colors.white, // 完全不透明的白色
+                Colors.white.withAlpha(0), // 完全透明
+              ],
+            ),
+          ),
+        ),
+      ),
+    ]);
   }
 }
