@@ -33,7 +33,7 @@ class ServiceTag extends StatelessWidget {
         child: DefaultTextStyle(
           style: TextStyle(
             fontSize: 12,
-            color: Color(0xFF627381),
+            color: Color(0xFF1C1C1C),
           ),
           child: child,
         ),
