@@ -46,7 +46,8 @@ class ServiceSelectSheet extends StatelessWidget {
                     child: TextField(
                       decoration: InputDecoration(
                         hintText: '搜索服务',
-                        hintStyle: TextStyle(fontSize: 14),
+                        hintStyle:
+                            TextStyle(fontSize: 14, color: Color(0xFF627381)),
                         prefixIcon: Icon(Icons.search),
                         border: InputBorder.none,
                         contentPadding: EdgeInsets.symmetric(
@@ -59,7 +60,19 @@ class ServiceSelectSheet extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text('热门服务'),
+                    Container(
+                      height: 28,
+                      alignment: Alignment.center,
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      decoration: BoxDecoration(
+                          color: Color(0xFFF5F6F8),
+                          borderRadius: BorderRadius.circular(16)),
+                      child: Text(
+                        '视频',
+                        style:
+                            TextStyle(fontSize: 12, color: Color(0xFF627381)),
+                      ),
+                    ),
                   ],
                 )
               ],
