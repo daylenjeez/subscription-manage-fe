@@ -13,7 +13,7 @@ class ServiceCard extends StatelessWidget {
       padding: EdgeInsets.only(left: 8, right: 8, top: 25, bottom: 8),
       decoration: BoxDecoration(
         color: Color(0xFFF5F6F8),
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(12),
       ),
       child: Column(
         children: [
@@ -47,7 +47,6 @@ class ServiceCategory extends StatelessWidget {
       alignment: Alignment.centerLeft,
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
@@ -56,21 +55,28 @@ class ServiceCategory extends StatelessWidget {
         children: [
           Text(title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: [
-              ServiceCard(
-                  label: 'YouTuber', logo: 'assets/images/logos/youtuber.png'),
-              ServiceCard(
-                  label: 'Youtube Premium',
-                  logo: 'assets/images/logos/youtuber.png'),
-              ServiceCard(
-                  label: 'YouTuber', logo: 'assets/images/logos/youtuber.png'),
-              ServiceCard(
-                  label: 'YouTuber', logo: 'assets/images/logos/youtuber.png'),
-            ],
-          ),
+          SizedBox(
+            width: 329,
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [
+                ServiceCard(
+                    label: 'YouTuber',
+                    logo: 'assets/images/logos/youtuber.png'),
+                ServiceCard(
+                    label: 'Youtube Premium',
+                    logo: 'assets/images/logos/youtuber.png'),
+                ServiceCard(
+                    label: 'YouTuber',
+                    logo: 'assets/images/logos/youtuber.png'),
+                ServiceCard(
+                    label: 'YouTuber',
+                    logo: 'assets/images/logos/youtuber.png'),
+              ],
+            ),
+          )
+
           // ListView.builder(
           //   itemBuilder: (context, index) {
           //     return Text('视频$index');
@@ -88,6 +94,7 @@ class ServiceCategoryList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 361,
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(16),
