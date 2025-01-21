@@ -81,9 +81,12 @@ class ServiceSelectSheet extends StatelessWidget {
           ),
           // 服务列表
           Expanded(
-            child: Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-              child: ServiceCategoryList(),
+            child: SingleChildScrollView(
+              physics: AlwaysScrollableScrollPhysics(),
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                child: ServiceCategoryList(),
+              ),
             ),
           ),
         ],
