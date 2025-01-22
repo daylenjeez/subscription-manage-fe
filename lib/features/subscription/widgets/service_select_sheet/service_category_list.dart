@@ -48,6 +48,7 @@ class ServiceCategory extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(16),
+        color: Colors.white,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -70,9 +71,9 @@ class ServiceCategory extends StatelessWidget {
                 ServiceCard(
                     label: 'YouTuber',
                     logo: 'assets/images/logos/youtuber.png'),
-                ServiceCard(
-                    label: 'YouTuber',
-                    logo: 'assets/images/logos/youtuber.png'),
+                // ServiceCard(
+                //     label: 'YouTuber',
+                //     logo: 'assets/images/logos/youtuber.png'),
               ],
             ),
           )
@@ -96,12 +97,13 @@ class ServiceCategoryList extends StatelessWidget {
     return Container(
       width: 361,
       decoration: BoxDecoration(
-        color: Colors.white,
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
+        spacing: 12,
         children: [
           ServiceCategory(title: '视频'),
+          ServiceCategory(title: '游戏'),
         ],
       ),
     );
