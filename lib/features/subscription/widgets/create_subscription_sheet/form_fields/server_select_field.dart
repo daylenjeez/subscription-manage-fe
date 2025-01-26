@@ -6,19 +6,22 @@ import '../../../../../shared/widgets/bottom_sheet.dart';
 // 显示底部弹窗
 void _showServiceSelectSheet(
     BuildContext context, Function(int?) onServerSelected) {
-  int? selectedId;
+  final selectedIdNotifier = ValueNotifier<int?>(null);
 
   AppBottomSheet.show(
     context: context,
     title: '选择服务',
-    child: ServiceSelectSheet(onServerSelected: (id) {
-      selectedId = id;
-    }),
+    child: ServiceSelectSheet(
+      selectedIdNotifier: selectedIdNotifier, // 传递 ValueNotifier
+      onServerSelected: (id) {
+        selectedIdNotifier.value = id; // 更新值
+      },
+    ),
     onCancel: () {
       print('取消');
     },
     onConfirm: (value) {
-      onServerSelected(selectedId);
+      onServerSelected(selectedIdNotifier.value);
     },
   );
 }

@@ -6,11 +6,13 @@ class ServiceCard extends StatelessWidget {
       required this.label,
       required this.logo,
       required this.id,
-      required this.onServerSelected});
+      required this.onServerSelected,
+      required this.selectedIdNotifier});
   final String label;
   final String logo;
   final int id;
   final Function(int) onServerSelected;
+  final ValueNotifier<int?> selectedIdNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -25,6 +27,11 @@ class ServiceCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: Color(0xFFF5F6F8),
           borderRadius: BorderRadius.circular(12),
+          border: Border.all(
+            color: selectedIdNotifier.value == id
+                ? Color(0xFF000000)
+                : Color(0xFFF5F6F8),
+          ),
         ),
         child: Column(
           children: [
@@ -50,9 +57,13 @@ class ServiceCard extends StatelessWidget {
 
 class ServiceCategory extends StatelessWidget {
   const ServiceCategory(
-      {super.key, required this.title, required this.onServerSelected});
+      {super.key,
+      required this.title,
+      required this.onServerSelected,
+      required this.selectedIdNotifier});
   final String title;
   final Function(int) onServerSelected;
+  final ValueNotifier<int?> selectedIdNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -80,17 +91,20 @@ class ServiceCategory extends StatelessWidget {
                     id: 1,
                     label: 'YouTuber',
                     logo: 'assets/images/logos/youtuber.png',
-                    onServerSelected: onServerSelected),
+                    onServerSelected: onServerSelected,
+                    selectedIdNotifier: selectedIdNotifier),
                 ServiceCard(
                     id: 2,
                     label: 'Youtube Premium',
                     logo: 'assets/images/logos/youtuber.png',
-                    onServerSelected: onServerSelected),
+                    onServerSelected: onServerSelected,
+                    selectedIdNotifier: selectedIdNotifier),
                 ServiceCard(
                     id: 3,
                     label: 'YouTuber',
                     logo: 'assets/images/logos/youtuber.png',
-                    onServerSelected: onServerSelected),
+                    onServerSelected: onServerSelected,
+                    selectedIdNotifier: selectedIdNotifier),
                 // ServiceCard(
                 //     label: 'YouTuber',
                 //     logo: 'assets/images/logos/youtuber.png'),
@@ -110,8 +124,12 @@ class ServiceCategory extends StatelessWidget {
 }
 
 class ServiceCategoryList extends StatelessWidget {
-  const ServiceCategoryList({super.key, required this.onServerSelected});
+  const ServiceCategoryList(
+      {super.key,
+      required this.onServerSelected,
+      required this.selectedIdNotifier});
   final Function(int) onServerSelected;
+  final ValueNotifier<int?> selectedIdNotifier;
 
   @override
   Widget build(BuildContext context) {
@@ -123,8 +141,14 @@ class ServiceCategoryList extends StatelessWidget {
       child: Column(
         spacing: 12,
         children: [
-          ServiceCategory(title: '视频', onServerSelected: onServerSelected),
-          ServiceCategory(title: '游戏', onServerSelected: onServerSelected),
+          ServiceCategory(
+              title: '视频',
+              onServerSelected: onServerSelected,
+              selectedIdNotifier: selectedIdNotifier),
+          ServiceCategory(
+              title: '游戏',
+              onServerSelected: onServerSelected,
+              selectedIdNotifier: selectedIdNotifier),
         ],
       ),
     );
