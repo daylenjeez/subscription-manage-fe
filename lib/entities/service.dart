@@ -95,3 +95,13 @@ class Service {
     return 'Service(id: $id, name: $name)';
   }
 }
+
+class ServiceTag {
+  final int id;
+  final String name;
+
+  const ServiceTag({
+    required this.id,
+    required this.name,
+  });
+}

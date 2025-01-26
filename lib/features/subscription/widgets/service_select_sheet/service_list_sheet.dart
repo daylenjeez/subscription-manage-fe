@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_category_list.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
 
-class ServiceSelectSheet extends StatelessWidget {
+import '../../../../entities/service.dart';
+
+class ServiceSelectSheet extends StatefulWidget {
   final Function(int) onServerSelected;
   final ValueNotifier<int?> selectedIdNotifier;
+
   const ServiceSelectSheet({
     super.key,
     required this.onServerSelected,
@@ -12,9 +15,14 @@ class ServiceSelectSheet extends StatelessWidget {
   });
 
   @override
+  State<ServiceSelectSheet> createState() => _ServiceSelectSheetState();
+}
+
+class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
+  @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int?>(
-        valueListenable: selectedIdNotifier,
+        valueListenable: widget.selectedIdNotifier,
         builder: (context, value, child) {
           return Container(
             decoration: BoxDecoration(
@@ -39,8 +47,8 @@ class ServiceSelectSheet extends StatelessWidget {
                           padding: EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: ServiceCategoryList(
-                            onServerSelected: onServerSelected,
-                            selectedIdNotifier: selectedIdNotifier,
+                            onServerSelected: widget.onServerSelected,
+                            selectedIdNotifier: widget.selectedIdNotifier,
                           ),
                         ),
                       ),
@@ -103,17 +111,17 @@ class ServiceSelectSheet extends StatelessWidget {
                         ),
                         ServiceTagList(
                           tags: [
-                            '视频',
-                            '游戏',
-                            '音乐',
-                            '工具',
-                            '教育',
-                            '社交',
-                            '生活',
-                            '其他',
+                            ServiceTag(id: 1, name: '视频'),
+                            ServiceTag(id: 2, name: '游戏'),
+                            ServiceTag(id: 3, name: '音乐'),
+                            ServiceTag(id: 4, name: '工具'),
+                            ServiceTag(id: 5, name: '教育'),
+                            ServiceTag(id: 6, name: '社交'),
+                            ServiceTag(id: 7, name: '生活'),
+                            ServiceTag(id: 8, name: '其他'),
                           ],
                           onTagSelected: (tag) {
-                            print(tag);
+                            print(tag.id);
                           },
                         ),
                       ],

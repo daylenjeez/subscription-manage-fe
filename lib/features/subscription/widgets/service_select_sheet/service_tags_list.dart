@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:subscription_app/entities/service.dart';
 
-class ServiceTag extends StatelessWidget {
-  final Widget child;
+class ServiceTagItem extends StatelessWidget {
+  final ServiceTag tag;
   final VoidCallback? onTap;
   final Color? backgroundColor;
   final double height;
   final double borderRadius;
   final EdgeInsetsGeometry? padding;
 
-  const ServiceTag({
+  const ServiceTagItem({
     Key? key,
-    required this.child,
+    required this.tag,
     this.onTap,
     this.backgroundColor = const Color(0xFFF5F6F8),
     this.height = 28,
@@ -35,7 +36,7 @@ class ServiceTag extends StatelessWidget {
             fontSize: 12,
             color: Color(0xFF1C1C1C),
           ),
-          child: child,
+          child: Text(tag.name),
         ),
       ),
     );
@@ -43,10 +44,10 @@ class ServiceTag extends StatelessWidget {
 }
 
 class ServiceTagList extends StatelessWidget {
-  final List<String> tags;
+  final List<ServiceTag> tags;
   final double spacing;
   final EdgeInsetsGeometry? padding;
-  final Function(String tag)? onTagSelected;
+  final Function(ServiceTag tag)? onTagSelected;
 
   const ServiceTagList({
     Key? key,
@@ -68,8 +69,9 @@ class ServiceTagList extends StatelessWidget {
           // 设置标签之间的间距
           separatorBuilder: (context, index) => SizedBox(width: spacing),
           itemBuilder: (context, index) {
-            return ServiceTag(
-              child: Text(tags[index]),
+            return ServiceTagItem(
+              tag: tags[index],
+              key: ValueKey(tags[index].id),
               onTap: () => onTagSelected?.call(tags[index]),
             );
           },

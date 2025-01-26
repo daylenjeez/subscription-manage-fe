@@ -19,9 +19,11 @@ void _showServiceSelectSheet(
     ),
     onCancel: () {
       print('取消');
+      selectedIdNotifier.dispose();
     },
     onConfirm: (value) {
       onServerSelected(selectedIdNotifier.value);
+      selectedIdNotifier.dispose();
     },
   );
 }
