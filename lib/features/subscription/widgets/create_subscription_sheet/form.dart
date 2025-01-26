@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:subscription_app/entities/service.dart';
-import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/custom_fields_list.dart';
+import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/custom_fields.dart';
 import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/server_select_field.dart';
 
 class CreateSubscriptionForm extends StatefulWidget {
@@ -27,7 +27,7 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
   }
 
   //处理服务选择
-  void _handleServerSelected(int id) {
+  void _handleServerSelected(int? id) {
     setState(() {
       _formData = _formData.copyWith(id: id, name: null, logo: null);
       print('服务选择: ${_formData.id}');

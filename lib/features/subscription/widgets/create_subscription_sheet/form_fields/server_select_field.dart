@@ -5,8 +5,8 @@ import '../../../../../shared/widgets/bottom_sheet.dart';
 // 显示底部弹窗
 // 显示底部弹窗
 void _showServiceSelectSheet(
-    BuildContext context, Function(int) onServerSelected) {
-  int selectedId = 0;
+    BuildContext context, Function(int?) onServerSelected) {
+  int? selectedId;
 
   AppBottomSheet.show(
     context: context,
@@ -24,7 +24,7 @@ void _showServiceSelectSheet(
 }
 
 class ServerSelectField extends StatelessWidget {
-  final Function(int) onServerSelected;
+  final Function(int?) onServerSelected;
   final int? serverId;
   const ServerSelectField(
       {super.key, required this.onServerSelected, this.serverId});
