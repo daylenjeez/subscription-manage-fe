@@ -14,13 +14,27 @@ class CreateSubscriptionForm extends StatefulWidget {
 }
 
 class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
+  //表单数据
+  final Map<String, dynamic> formData = {};
+
+  //处理服务选择
+  void _handleServerSelected(int id) {
+    setState(() {
+      formData['serverId'] = id;
+      print('服务选择: $formData');
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Column(
         children: [
-          ServerSelectField(),
+          ServerSelectField(
+            onServerSelected: _handleServerSelected,
+            serverId: formData['serverId'],
+          ),
         ],
       ),
     );

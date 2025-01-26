@@ -2,16 +2,21 @@ import 'package:flutter/material.dart';
 
 class ServiceCard extends StatelessWidget {
   const ServiceCard(
-      {super.key, required this.label, required this.logo, required this.id});
+      {super.key,
+      required this.label,
+      required this.logo,
+      required this.id,
+      required this.onServerSelected});
   final String label;
   final String logo;
   final int id;
+  final Function(int) onServerSelected;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        print('点击了$id');
+        onServerSelected(id);
       },
       child: Container(
         width: 158.5,
@@ -44,8 +49,10 @@ class ServiceCard extends StatelessWidget {
 }
 
 class ServiceCategory extends StatelessWidget {
-  const ServiceCategory({super.key, required this.title});
+  const ServiceCategory(
+      {super.key, required this.title, required this.onServerSelected});
   final String title;
+  final Function(int) onServerSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -72,15 +79,18 @@ class ServiceCategory extends StatelessWidget {
                 ServiceCard(
                     id: 1,
                     label: 'YouTuber',
-                    logo: 'assets/images/logos/youtuber.png'),
+                    logo: 'assets/images/logos/youtuber.png',
+                    onServerSelected: onServerSelected),
                 ServiceCard(
                     id: 2,
                     label: 'Youtube Premium',
-                    logo: 'assets/images/logos/youtuber.png'),
+                    logo: 'assets/images/logos/youtuber.png',
+                    onServerSelected: onServerSelected),
                 ServiceCard(
                     id: 3,
                     label: 'YouTuber',
-                    logo: 'assets/images/logos/youtuber.png'),
+                    logo: 'assets/images/logos/youtuber.png',
+                    onServerSelected: onServerSelected),
                 // ServiceCard(
                 //     label: 'YouTuber',
                 //     logo: 'assets/images/logos/youtuber.png'),
@@ -100,7 +110,8 @@ class ServiceCategory extends StatelessWidget {
 }
 
 class ServiceCategoryList extends StatelessWidget {
-  const ServiceCategoryList({super.key});
+  const ServiceCategoryList({super.key, required this.onServerSelected});
+  final Function(int) onServerSelected;
 
   @override
   Widget build(BuildContext context) {
@@ -112,8 +123,8 @@ class ServiceCategoryList extends StatelessWidget {
       child: Column(
         spacing: 12,
         children: [
-          ServiceCategory(title: '视频'),
-          ServiceCategory(title: '游戏'),
+          ServiceCategory(title: '视频', onServerSelected: onServerSelected),
+          ServiceCategory(title: '游戏', onServerSelected: onServerSelected),
         ],
       ),
     );
