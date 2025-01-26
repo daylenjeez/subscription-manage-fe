@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_list.dart';
+import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_list_sheet.dart';
 import '../../../../../shared/widgets/bottom_sheet.dart';
 
 // 显示底部弹窗
