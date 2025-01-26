@@ -1,36 +1,43 @@
 import 'package:flutter/material.dart';
 
 class ServiceCard extends StatelessWidget {
-  const ServiceCard({super.key, required this.label, required this.logo});
+  const ServiceCard(
+      {super.key, required this.label, required this.logo, required this.id});
   final String label;
   final String logo;
+  final int id;
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 158.5,
-      height: 140,
-      padding: EdgeInsets.only(left: 8, right: 8, top: 25, bottom: 8),
-      decoration: BoxDecoration(
-        color: Color(0xFFF5F6F8),
-        borderRadius: BorderRadius.circular(12),
-      ),
-      child: Column(
-        children: [
-          Container(
-            width: 64,
-            height: 64,
-            margin: EdgeInsets.only(bottom: 8),
-            child: Image.asset(
-              logo,
-              fit: BoxFit.contain,
+    return GestureDetector(
+      onTap: () {
+        print('点击了$id');
+      },
+      child: Container(
+        width: 158.5,
+        height: 140,
+        padding: EdgeInsets.only(left: 8, right: 8, top: 25, bottom: 8),
+        decoration: BoxDecoration(
+          color: Color(0xFFF5F6F8),
+          borderRadius: BorderRadius.circular(12),
+        ),
+        child: Column(
+          children: [
+            Container(
+              width: 64,
+              height: 64,
+              margin: EdgeInsets.only(bottom: 8),
+              child: Image.asset(
+                logo,
+                fit: BoxFit.contain,
+              ),
             ),
-          ),
-          Text(
-            label,
-            style: TextStyle(fontSize: 14),
-          ),
-        ],
+            Text(
+              label,
+              style: TextStyle(fontSize: 14),
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -63,12 +70,15 @@ class ServiceCategory extends StatelessWidget {
               runSpacing: 12,
               children: [
                 ServiceCard(
+                    id: 1,
                     label: 'YouTuber',
                     logo: 'assets/images/logos/youtuber.png'),
                 ServiceCard(
+                    id: 2,
                     label: 'Youtube Premium',
                     logo: 'assets/images/logos/youtuber.png'),
                 ServiceCard(
+                    id: 3,
                     label: 'YouTuber',
                     logo: 'assets/images/logos/youtuber.png'),
                 // ServiceCard(
