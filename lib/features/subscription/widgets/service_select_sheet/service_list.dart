@@ -16,9 +16,7 @@ class ServiceSelectSheet extends StatelessWidget {
         ),
       ),
       child: Stack(
-        // 使用 Stack 替换最外层的 Column
         children: [
-          // 滚动内容放在底层
           Column(
             children: [
               SizedBox(
