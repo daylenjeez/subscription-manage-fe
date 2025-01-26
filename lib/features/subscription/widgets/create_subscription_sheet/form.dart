@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/custom_fields_list.dart';
 import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/server_select_field.dart';
 
 class CreateSubscriptionForm extends StatefulWidget {
@@ -35,6 +36,7 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
             onServerSelected: _handleServerSelected,
             serverId: formData['serverId'],
           ),
+          if (formData['serverId'] != null) CustomFields(),
         ],
       ),
     );
