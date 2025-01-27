@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:subscription_app/core/providers/services_provider.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_category_list.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
 import '../../../../core/data/entities/service.dart';
 
-class ServiceSelectSheet extends StatefulWidget {
+// 1. 改为 ConsumerStatefulWidget
+class ServiceSelectSheet extends ConsumerStatefulWidget {
   final Function(int) onServerSelected;
   final ValueNotifier<int?> selectedIdNotifier;
 
@@ -14,10 +17,10 @@ class ServiceSelectSheet extends StatefulWidget {
   });
 
   @override
-  State<ServiceSelectSheet> createState() => _ServiceSelectSheetState();
+  ConsumerState<ServiceSelectSheet> createState() => _ServiceSelectSheetState();
 }
 
-class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
+class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
   // 创建滚动控制器
   final ScrollController _scrollController = ScrollController();
 
@@ -27,10 +30,19 @@ class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
   @override
   void initState() {
     super.initState();
-    // 初始化每个分类的 key
-    for (int i = 1; i <= 8; i++) {
-      _categoryKeys[i] = GlobalKey();
-    }
+
+    Future.microtask(() {
+      // 初始化数据
+      ref.read(servicesProvider.future).then((services) {
+        setState(() {
+          print('services: $services');
+          // 根据实际数据初始化 keys
+          for (var category in services) {
+            _categoryKeys[category.id] = GlobalKey();
+          }
+        });
+      });
+    });
   }
 
   @override
@@ -54,6 +66,8 @@ class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
 
   @override
   Widget build(BuildContext context) {
+    final servicesAsync = ref.watch(servicesProvider);
+
     return ValueListenableBuilder<int?>(
         valueListenable: widget.selectedIdNotifier,
         builder: (context, value, child) {
@@ -74,20 +88,38 @@ class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
                     // 为header预留空间
                     // 服务列表
                     Expanded(
-                      child: SingleChildScrollView(
-                        controller: _scrollController,
-                        physics: AlwaysScrollableScrollPhysics(),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: 16, vertical: 16),
-                          child: ServiceCategoryList(
-                            categoryKeys: _categoryKeys,
-                            onServerSelected: widget.onServerSelected,
-                            selectedIdNotifier: widget.selectedIdNotifier,
+                      child: servicesAsync.when(
+                        loading: () => Center(
+                          child: CircularProgressIndicator(),
+                        ),
+                        error: (error, stack) => Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('加载失败: $error'),
+                              SizedBox(height: 16),
+                              ElevatedButton(
+                                onPressed: () => ref.refresh(servicesProvider),
+                                child: Text('重试'),
+                              ),
+                            ],
+                          ),
+                        ),
+                        data: (services) => SingleChildScrollView(
+                          controller: _scrollController,
+                          physics: AlwaysScrollableScrollPhysics(),
+                          child: Container(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 16, vertical: 16),
+                            child: ServiceCategoryList(
+                              categoryKeys: _categoryKeys,
+                              onServerSelected: widget.onServerSelected,
+                              selectedIdNotifier: widget.selectedIdNotifier,
+                            ),
                           ),
                         ),
                       ),
-                    ),
+                    )
                   ],
                 ),
                 // Header放在顶层
