@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:subscription_app/entities/service.dart';
+import 'package:subscription_app/core/data/entities/service.dart';
 import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/custom_fields.dart';
 import 'package:subscription_app/features/subscription/widgets/create_subscription_sheet/form_fields/server_select_field.dart';
 

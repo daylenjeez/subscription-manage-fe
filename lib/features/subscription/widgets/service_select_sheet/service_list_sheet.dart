@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_category_list.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
 
-import '../../../../entities/service.dart';
+import '../../../../core/data/entities/service.dart';
 
 class ServiceSelectSheet extends StatefulWidget {
   final Function(int) onServerSelected;

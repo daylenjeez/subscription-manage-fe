@@ -105,3 +105,24 @@ class ServiceTag {
     required this.name,
   });
 }
+
+/// 服务树，分类下的服务
+class ServiceTree {
+  final int id;
+  final String name;
+  final List<Service> services;
+
+  const ServiceTree({
+    required this.id,
+    required this.name,
+    required this.services,
+  });
+
+  factory ServiceTree.fromJson(Map<String, dynamic> json) {
+    return ServiceTree(
+      id: json['id'],
+      name: json['name'],
+      services: json['services'],
+    );
+  }
+}

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:subscription_app/entities/service.dart';
+import 'package:subscription_app/core/data/entities/service.dart';
 
 class ServiceTagItem extends StatelessWidget {
   final ServiceTag tag;
