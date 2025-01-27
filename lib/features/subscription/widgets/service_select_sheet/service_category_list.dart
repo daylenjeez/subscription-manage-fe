@@ -127,9 +127,11 @@ class ServiceCategoryList extends StatelessWidget {
   const ServiceCategoryList(
       {super.key,
       required this.onServerSelected,
-      required this.selectedIdNotifier});
+      required this.selectedIdNotifier,
+      required this.categoryKeys});
   final Function(int) onServerSelected;
   final ValueNotifier<int?> selectedIdNotifier;
+  final Map<int, GlobalKey> categoryKeys;
 
   @override
   Widget build(BuildContext context) {
@@ -141,14 +143,20 @@ class ServiceCategoryList extends StatelessWidget {
       child: Column(
         spacing: 12,
         children: [
-          ServiceCategory(
-              title: '视频',
-              onServerSelected: onServerSelected,
-              selectedIdNotifier: selectedIdNotifier),
-          ServiceCategory(
-              title: '游戏',
-              onServerSelected: onServerSelected,
-              selectedIdNotifier: selectedIdNotifier),
+          Container(
+            key: categoryKeys[1],
+            child: ServiceCategory(
+                title: '视频',
+                onServerSelected: onServerSelected,
+                selectedIdNotifier: selectedIdNotifier),
+          ),
+          Container(
+            key: categoryKeys[2],
+            child: ServiceCategory(
+                title: '游戏',
+                onServerSelected: onServerSelected,
+                selectedIdNotifier: selectedIdNotifier),
+          ),
         ],
       ),
     );

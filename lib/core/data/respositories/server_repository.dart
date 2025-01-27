@@ -15,16 +15,4 @@ class ServerRepository {
       return null;
     }
   }
-
-  // Future<List<User>> getUsers() async {
-  //   try {
-  //     final response = await _dio.get('/users');
-  //     return (response.data as List)
-  //         .map((json) => User.fromJson(json))
-  //         .toList();
-  //   } catch (e) {
-  //     print('获取用户列表失败: $e');
-  //     return [];
-  //   }
-  // }
 }

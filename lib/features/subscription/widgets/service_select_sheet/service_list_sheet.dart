@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_category_list.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
-
 import '../../../../core/data/entities/service.dart';
 
 class ServiceSelectSheet extends StatefulWidget {
@@ -19,6 +18,40 @@ class ServiceSelectSheet extends StatefulWidget {
 }
 
 class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
+  // 创建滚动控制器
+  final ScrollController _scrollController = ScrollController();
+
+  // 用于存储分类位置信息的 Map
+  final Map<int, GlobalKey> _categoryKeys = {};
+
+  @override
+  void initState() {
+    super.initState();
+    // 初始化每个分类的 key
+    for (int i = 1; i <= 8; i++) {
+      _categoryKeys[i] = GlobalKey();
+    }
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  // 滚动到指定分类
+  void _scrollToCategory(int tagId) {
+    final categoryKey = _categoryKeys[tagId];
+    if (categoryKey?.currentContext != null) {
+      Scrollable.ensureVisible(
+        categoryKey!.currentContext!,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeInOut,
+        alignment: 0.0, // 0.0 表示顶部对齐
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return ValueListenableBuilder<int?>(
@@ -42,11 +75,13 @@ class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
                     // 服务列表
                     Expanded(
                       child: SingleChildScrollView(
+                        controller: _scrollController,
                         physics: AlwaysScrollableScrollPhysics(),
                         child: Container(
                           padding: EdgeInsets.symmetric(
                               horizontal: 16, vertical: 16),
                           child: ServiceCategoryList(
+                            categoryKeys: _categoryKeys,
                             onServerSelected: widget.onServerSelected,
                             selectedIdNotifier: widget.selectedIdNotifier,
                           ),
@@ -121,7 +156,7 @@ class _ServiceSelectSheetState extends State<ServiceSelectSheet> {
                             ServiceTag(id: 8, name: '其他'),
                           ],
                           onTagSelected: (tag) {
-                            print(tag.id);
+                            _scrollToCategory(tag.id); // 点击 tag 时滚动
                           },
                         ),
                       ],
