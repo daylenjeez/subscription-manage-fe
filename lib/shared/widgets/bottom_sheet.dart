@@ -118,7 +118,7 @@ class AppBottomSheet extends StatelessWidget {
                     confirmText,
                     style: TextStyle(
                       fontSize: 16,
-                      color: Colors.blue,
+                      color: Color(0xFF2C2C2C),
                       fontWeight: FontWeight.w500,
                     ),
                   ),
