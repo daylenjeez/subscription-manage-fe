@@ -109,14 +109,51 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
                           controller: _scrollController,
                           physics: AlwaysScrollableScrollPhysics(),
                           child: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 16, vertical: 16),
-                            child: ServiceCategoryList(
-                              categoryKeys: _categoryKeys,
-                              onServerSelected: widget.onServerSelected,
-                              selectedIdNotifier: widget.selectedIdNotifier,
-                            ),
-                          ),
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 16),
+                              child: Column(children: [
+                                Container(
+                                  height: 48,
+                                  width: double.infinity,
+                                  margin: EdgeInsets.only(top: 6, bottom: 16),
+                                  child: ElevatedButton(
+                                      onPressed: () {},
+                                      style: ElevatedButton.styleFrom(
+                                        backgroundColor: Color(0xFF2C2C2C),
+                                        elevation: 0,
+                                        side: BorderSide(
+                                          color: Color(0xFFE5E7EB),
+                                          width: 0,
+                                        ),
+                                        shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(16),
+                                          side: BorderSide(
+                                            color: Color(0xFFE0E0E0),
+                                            width: 0,
+                                          ),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
+                                        children: [
+                                          Icon(Icons.add,
+                                              size: 20,
+                                              color: Color(0xFFFFFFFF)),
+                                          Text('自定义',
+                                              style: TextStyle(
+                                                  fontSize: 16,
+                                                  color: Color(0xFFFFFFFF)))
+                                        ],
+                                      )),
+                                ),
+                                ServiceCategoryList(
+                                  categoryKeys: _categoryKeys,
+                                  onServerSelected: widget.onServerSelected,
+                                  selectedIdNotifier: widget.selectedIdNotifier,
+                                ),
+                              ])),
                         ),
                       ),
                     )
