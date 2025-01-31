@@ -54,6 +54,7 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
   // 滚动到指定分类
   void _scrollToCategory(int tagId) {
     final categoryKey = _categoryKeys[tagId];
+    print('categoryKey: $categoryKey');
     if (categoryKey?.currentContext != null) {
       Scrollable.ensureVisible(
         categoryKey!.currentContext!,

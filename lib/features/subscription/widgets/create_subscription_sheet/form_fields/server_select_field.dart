@@ -3,7 +3,6 @@ import 'package:subscription_app/features/subscription/widgets/service_select_sh
 import '../../../../../shared/widgets/bottom_sheet.dart';
 
 // 显示底部弹窗
-// 显示底部弹窗
 void _showServiceSelectSheet(
     BuildContext context, Function(int?) onServerSelected) {
   final selectedIdNotifier = ValueNotifier<int?>(null);
@@ -14,8 +13,7 @@ void _showServiceSelectSheet(
     child: ServiceSelectSheet(
       selectedIdNotifier: selectedIdNotifier, // 传递 ValueNotifier
       onServerSelected: (id) {
-        selectedIdNotifier.value = id; // 更新值
-        print('id: $id');
+        selectedIdNotifier.value = id;
 
         if (id == -1) {
           //自定义服务
@@ -26,7 +24,6 @@ void _showServiceSelectSheet(
       },
     ),
     onCancel: () {
-      print('取消');
       selectedIdNotifier.dispose();
     },
     onConfirm: (value) {
