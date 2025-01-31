@@ -14,6 +14,11 @@ class AppBottomSheet extends StatelessWidget {
   // 确认回调
   final Function(dynamic)? onConfirm;
 
+  // 添加一个静态方法来触发确认
+  static void confirm(BuildContext context) {
+    Navigator.pop(context, true); // true 表示确认
+  }
+
   const AppBottomSheet({
     Key? key,
     required this.title,

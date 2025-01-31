@@ -15,6 +15,14 @@ void _showServiceSelectSheet(
       selectedIdNotifier: selectedIdNotifier, // 传递 ValueNotifier
       onServerSelected: (id) {
         selectedIdNotifier.value = id; // 更新值
+        print('id: $id');
+
+        if (id == -1) {
+          //自定义服务
+          onServerSelected(selectedIdNotifier.value);
+          selectedIdNotifier.dispose();
+          AppBottomSheet.confirm(context);
+        }
       },
     ),
     onCancel: () {

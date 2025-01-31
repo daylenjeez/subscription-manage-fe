@@ -117,7 +117,9 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
                                   width: double.infinity,
                                   margin: EdgeInsets.only(top: 6, bottom: 16),
                                   child: ElevatedButton(
-                                      onPressed: () {},
+                                      onPressed: () {
+                                        widget.onServerSelected(-1);
+                                      },
                                       style: ElevatedButton.styleFrom(
                                         backgroundColor: Color(0xFF2C2C2C),
                                         elevation: 0,
