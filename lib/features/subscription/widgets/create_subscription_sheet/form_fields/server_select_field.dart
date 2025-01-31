@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_list_sheet.dart';
-import '../../../../../shared/widgets/bottom_sheet.dart';
+import 'package:subscription_app/shared/widgets/bottom_sheet.dart';
 
 // 显示底部弹窗
 void _showServiceSelectSheet(
@@ -45,10 +45,13 @@ class ServerSelectField extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+          padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             '服务选择',
-            style: TextStyle(fontSize: 14, color: Color(0xFF6B7280)),
+            style: TextStyle(
+                fontSize: 14,
+                color: Color(0xFF1E2936),
+                fontWeight: FontWeight.bold),
           ),
         ),
         InkWell(
@@ -56,31 +59,46 @@ class ServerSelectField extends StatelessWidget {
             _showServiceSelectSheet(context, onServerSelected);
           },
           child: Container(
-            height: 44,
+            height: 48,
             padding: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
+              border: Border.all(color: Color(0xFFE2E3E4)),
             ),
             child: Row(
               children: [
                 // 左侧文本
                 Expanded(
                   child: Text(
-                    '请选择服务名称',
+                    '请选择服务',
                     style: TextStyle(
                       fontSize: 14,
-                      color: Color(0xFF9CA3AF),
+                      color: Color(0xFF929CA5),
                     ),
                   ),
                 ),
                 // 右侧新增按钮
-                Container(
-                  margin: EdgeInsets.only(left: 8),
-                  child: Icon(
-                    Icons.add_circle_outline,
-                    size: 20,
-                    color: Color(0xFF9CA3AF),
+                IntrinsicWidth(
+                  child: MaterialButton(
+                    elevation: 0,
+                    hoverElevation: 0,
+                    focusElevation: 0,
+                    highlightElevation: 0,
+                    color: Color(0xFF1E2936),
+                    onPressed: () {},
+                    // padding: EdgeInsets.symmetric(horizontal: 8),
+                    // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Text(
+                      '选择',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],
