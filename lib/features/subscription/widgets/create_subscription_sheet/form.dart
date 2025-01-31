@@ -30,7 +30,6 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
   void _handleServerSelected(int? id) {
     setState(() {
       _formData = _formData.copyWith(id: id, name: null, logo: null);
-      print('服务选择: ${_formData.id}');
     });
   }
 
