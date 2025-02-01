@@ -83,13 +83,12 @@ class CustomFields extends StatelessWidget {
                     hoverElevation: 0,
                     focusElevation: 0,
                     highlightElevation: 0,
-                    color: Colors.white,
+                    color: Color(0xFFE2E3E4),
                     onPressed: () {},
                     // padding: EdgeInsets.symmetric(horizontal: 8),
                     // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
-                      side: BorderSide(color: Color(0xFFE2E3E4)),
                     ),
                     child: Text(
                       '选择',
