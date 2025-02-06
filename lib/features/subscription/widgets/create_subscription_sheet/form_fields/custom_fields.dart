@@ -12,23 +12,16 @@ class CustomFields extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             '名称',
-            style: TextStyle(
-              fontSize: 14,
-              color: Color(0xFF1E2936),
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
         TextField(
           decoration: InputDecoration(
-            labelStyle: TextStyle(
-                fontSize: 14,
-                color: Color(0xFF1E2936),
-                fontWeight: FontWeight.bold),
+            labelStyle: Theme.of(context).textTheme.labelMedium,
             hintText: '请输入名称',
             hintStyle: TextStyle(
               fontSize: 14,
-              color: Color(0xFF929CA5),
+              color: Theme.of(context).hintColor,
             ),
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(8),
@@ -53,10 +46,7 @@ class CustomFields extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             'Icon',
-            style: TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-            ),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
         Container(
@@ -74,7 +64,7 @@ class CustomFields extends StatelessWidget {
                   '请选择Icon',
                   style: TextStyle(
                     fontSize: 14,
-                    color: Color(0xFF929CA5),
+                    color: Theme.of(context).hintColor,
                   ),
                 ),
                 IntrinsicWidth(
@@ -92,10 +82,7 @@ class CustomFields extends StatelessWidget {
                     ),
                     child: Text(
                       '选择',
-                      style: TextStyle(
-                          color: Color(0xFF1E2936),
-                          fontSize: 14,
-                          fontWeight: FontWeight.bold),
+                      style: Theme.of(context).textTheme.labelMedium,
                     ),
                   ),
                 ),
