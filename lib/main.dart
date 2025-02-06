@@ -19,11 +19,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: '订阅管理',
       theme: AppTheme.light(),
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   useMaterial3: true,
-      // ),
-      // 使用路由配置
       routerConfig: router,
     );
   }

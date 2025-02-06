@@ -94,7 +94,7 @@ class ServerSelectField extends StatelessWidget {
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,
-                          fontWeight: FontWeight.bold),
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),

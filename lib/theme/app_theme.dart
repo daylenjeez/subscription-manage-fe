@@ -8,21 +8,22 @@ class AppTheme {
   static ThemeData light() {
     return ThemeData(
       useMaterial3: true,
+      fontFamily: 'PingFang SC',
       textTheme: const TextTheme(
         labelLarge: TextStyle(
           color: AppColors.textPrimary,
           fontSize: 16,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
         labelMedium: TextStyle(
           color: AppColors.textPrimary,
           fontSize: 14,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
         labelSmall: TextStyle(
           color: AppColors.textPrimary,
           fontSize: 12,
-          fontWeight: FontWeight.bold,
+          fontWeight: FontWeight.w500,
         ),
         bodyLarge: TextStyle(
           color: AppColors.textPrimary,
