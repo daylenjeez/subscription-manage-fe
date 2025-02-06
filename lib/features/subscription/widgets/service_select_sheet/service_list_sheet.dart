@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:subscription_app/core/providers/services_provider.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_category_list.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_tags_list.dart';
-import '../../../../core/data/entities/service.dart';
+import 'package:subscription_app/core/data/entities/service.dart';
 
 // 1. 改为 ConsumerStatefulWidget
 class ServiceSelectSheet extends ConsumerStatefulWidget {
@@ -35,7 +35,6 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
       // 初始化数据
       ref.read(servicesProvider.future).then((services) {
         setState(() {
-          print('services: $services');
           // 根据实际数据初始化 keys
           for (var category in services) {
             _categoryKeys[category.id] = GlobalKey();
@@ -54,7 +53,6 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
   // 滚动到指定分类
   void _scrollToCategory(int tagId) {
     final categoryKey = _categoryKeys[tagId];
-    print('categoryKey: $categoryKey');
     if (categoryKey?.currentContext != null) {
       Scrollable.ensureVisible(
         categoryKey!.currentContext!,
