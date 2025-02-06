@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:subscription_app/theme/app_theme.dart';
 import 'core/routes/router.dart';
 
 void main() {
@@ -17,10 +18,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: '订阅管理',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        useMaterial3: true,
-      ),
+      theme: AppTheme.lightTheme,
+      // theme: ThemeData(
+      //   primarySwatch: Colors.blue,
+      //   useMaterial3: true,
+      // ),
       // 使用路由配置
       routerConfig: router,
     );
