@@ -43,12 +43,12 @@ class CustomFields extends StatelessWidget {
               ),
             ),
             contentPadding: EdgeInsets.symmetric(
-              horizontal: 16,
-              vertical: 12,
+              horizontal: 8,
+              vertical: 8,
             ),
           ),
         ),
-        SizedBox(height: 16),
+        SizedBox(height: 12),
         Container(
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
@@ -62,7 +62,7 @@ class CustomFields extends StatelessWidget {
         Container(
             height: 48,
             width: double.infinity,
-            padding: EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+            padding: EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
               border: Border.all(color: Color(0xFFE2E3E4)),

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:subscription_app/features/subscription/widgets/service_select_sheet/service_list_sheet.dart';
 import 'package:subscription_app/shared/widgets/bottom_sheet.dart';
-import 'package:subscription_app/theme/app_theme.dart';
 
 // 显示底部弹窗
 void _showServiceSelectSheet(
@@ -49,10 +48,7 @@ class ServerSelectField extends StatelessWidget {
           padding: EdgeInsets.symmetric(vertical: 8),
           child: Text(
             '服务选择',
-            style: TextStyle(
-                fontSize: 14,
-                color: AppTheme.primaryColor,
-                fontWeight: FontWeight.bold),
+            style: Theme.of(context).textTheme.labelMedium,
           ),
         ),
         InkWell(
@@ -61,7 +57,7 @@ class ServerSelectField extends StatelessWidget {
           },
           child: Container(
             height: 48,
-            padding: EdgeInsets.symmetric(horizontal: 16),
+            padding: EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
@@ -75,7 +71,7 @@ class ServerSelectField extends StatelessWidget {
                     '请选择服务',
                     style: TextStyle(
                       fontSize: 14,
-                      color: AppTheme.hintTextColor,
+                      color: Theme.of(context).hintColor,
                     ),
                   ),
                 ),
@@ -86,7 +82,7 @@ class ServerSelectField extends StatelessWidget {
                     hoverElevation: 0,
                     focusElevation: 0,
                     highlightElevation: 0,
-                    color: AppTheme.primaryColor,
+                    color: Theme.of(context).buttonTheme.colorScheme?.primary,
                     onPressed: () {},
                     // padding: EdgeInsets.symmetric(horizontal: 8),
                     // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,

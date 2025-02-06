@@ -1,19 +1,51 @@
 import 'package:flutter/material.dart';
+import 'app_colors.dart';
 
 class AppTheme {
   AppTheme._();
-  static const Color primaryColor = Color(0xFF1E2936); //主色
-  static const Color hintTextColor = Color(0xFF929CA5); //提示色
 
-  static final ThemeData lightTheme = ThemeData(
-    useMaterial3: true,
-    primaryColor: primaryColor,
-    hintColor: hintTextColor,
-  );
-
-  static final ThemeData darkTheme = ThemeData(
-    useMaterial3: true,
-    primaryColor: primaryColor,
-    hintColor: hintTextColor,
-  );
+  // 亮色主题
+  static ThemeData light() {
+    return ThemeData(
+      useMaterial3: true,
+      textTheme: const TextTheme(
+        labelLarge: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 16,
+          fontWeight: FontWeight.bold,
+        ),
+        labelMedium: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 14,
+          fontWeight: FontWeight.bold,
+        ),
+        labelSmall: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 12,
+          fontWeight: FontWeight.bold,
+        ),
+        bodyLarge: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 16,
+          fontWeight: FontWeight.w400,
+        ),
+        bodyMedium: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 14,
+          fontWeight: FontWeight.w400,
+        ),
+        bodySmall: TextStyle(
+          color: AppColors.textPrimary,
+          fontSize: 12,
+          fontWeight: FontWeight.w400,
+        ),
+      ),
+      hintColor: AppColors.hintTextColor,
+      buttonTheme: ButtonThemeData(
+        colorScheme: ColorScheme.fromSwatch().copyWith(
+          primary: AppColors.primaryButtonColor,
+        ),
+      ),
+    );
+  }
 }

@@ -43,7 +43,7 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
             onServerSelected: _handleServerSelected,
             serverId: _formData.id,
           ),
-          SizedBox(height: 16),
+          SizedBox(height: 12),
           if (_formData.isCustom) CustomFields(),
         ],
       ),

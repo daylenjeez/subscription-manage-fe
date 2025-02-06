@@ -112,7 +112,7 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
                                   horizontal: 16, vertical: 16),
                               child: Column(children: [
                                 Container(
-                                  height: 48,
+                                  height: 36,
                                   width: double.infinity,
                                   margin: EdgeInsets.only(top: 6, bottom: 16),
                                   child: ElevatedButton(

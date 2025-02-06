@@ -18,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: '订阅管理',
-      theme: AppTheme.lightTheme,
+      theme: AppTheme.light(),
       // theme: ThemeData(
       //   primarySwatch: Colors.blue,
       //   useMaterial3: true,
