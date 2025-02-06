@@ -61,7 +61,7 @@ class ServerSelectField extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Color(0xFFE2E3E4)),
+              border: Border.all(color: Theme.of(context).dividerColor),
             ),
             child: Row(
               children: [

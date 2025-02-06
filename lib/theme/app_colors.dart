@@ -14,4 +14,7 @@ class AppColors {
   static const Color hintTextColor = Color(0xFF999999);
   // 按钮颜色
   static const Color primaryButtonColor = Color(0xFF1A1A1A);
+
+  // 分割线颜色
+  static const Color dividerColor = Color(0xFFE2E3E4);
 }

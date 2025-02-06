@@ -42,11 +42,44 @@ class AppTheme {
         ),
       ),
       hintColor: AppColors.hintTextColor,
+      dividerColor: AppColors.dividerColor,
+      inputDecorationTheme: InputDecorationTheme(
+        labelStyle: TextStyle(
+          color: AppColors.textPrimary,
+        ),
+        hintStyle: TextStyle(
+          fontSize: 14,
+          color: AppColors.hintTextColor,
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: Color(0xFFDCDCDC),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8),
+          borderSide: BorderSide(
+            color: Colors.blue,
+          ),
+        ),
+        contentPadding: EdgeInsets.symmetric(
+          horizontal: 8,
+          vertical: 8,
+        ),
+      ),
       buttonTheme: ButtonThemeData(
         colorScheme: ColorScheme.fromSwatch().copyWith(
           primary: AppColors.primaryButtonColor,
         ),
       ),
+    );
+  }
+
+  // 暗色主题
+  static ThemeData dark() {
+    return ThemeData(
+      useMaterial3: true,
     );
   }
 }

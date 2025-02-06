@@ -17,28 +17,7 @@ class CustomFields extends StatelessWidget {
         ),
         TextField(
           decoration: InputDecoration(
-            labelStyle: Theme.of(context).textTheme.labelMedium,
             hintText: '请输入名称',
-            hintStyle: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                color: Color(0xFFDCDCDC),
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(8),
-              borderSide: BorderSide(
-                color: Colors.blue,
-              ),
-            ),
-            contentPadding: EdgeInsets.symmetric(
-              horizontal: 8,
-              vertical: 8,
-            ),
           ),
         ),
         SizedBox(height: 12),
