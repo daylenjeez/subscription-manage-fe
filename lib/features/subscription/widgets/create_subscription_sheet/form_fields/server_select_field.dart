@@ -83,9 +83,9 @@ class ServerSelectField extends StatelessWidget {
                     focusElevation: 0,
                     highlightElevation: 0,
                     color: Theme.of(context).buttonTheme.colorScheme?.primary,
-                    onPressed: () {},
-                    // padding: EdgeInsets.symmetric(horizontal: 8),
-                    // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                    onPressed: () {
+                      _showServiceSelectSheet(context, onServerSelected);
+                    },
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),

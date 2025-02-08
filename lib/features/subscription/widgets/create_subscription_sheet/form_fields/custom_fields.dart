@@ -34,7 +34,7 @@ class CustomFields extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(8),
-              border: Border.all(color: Color(0xFFE2E3E4)),
+              border: Border.all(color: Theme.of(context).dividerColor),
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -54,8 +54,6 @@ class CustomFields extends StatelessWidget {
                     highlightElevation: 0,
                     color: Color(0xFFE2E3E4),
                     onPressed: () {},
-                    // padding: EdgeInsets.symmetric(horizontal: 8),
-                    // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
