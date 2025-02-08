@@ -189,13 +189,15 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
                           height: 36,
                           margin: EdgeInsets.symmetric(horizontal: 16),
                           child: Container(
-                            clipBehavior: Clip.antiAlias,
+                            clipBehavior: Clip.none,
                             decoration: BoxDecoration(
                               color: Color(0xFFF5F6F8),
                               borderRadius: BorderRadius.circular(16),
                             ),
                             child: TextField(
                               decoration: InputDecoration(
+                                enabledBorder: InputBorder.none,
+                                focusedBorder: InputBorder.none,
                                 hintText: '搜索服务',
                                 hintStyle: TextStyle(
                                   fontSize: 14,
@@ -211,6 +213,9 @@ class _ServiceSelectSheetState extends ConsumerState<ServiceSelectSheet> {
                                   vertical: 0,
                                 ),
                               ),
+                              onChanged: (value) {
+                                print(value);
+                              },
                             ),
                           ),
                         ),
