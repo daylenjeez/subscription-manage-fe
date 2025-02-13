@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 class CustomFields extends StatelessWidget {
-  const CustomFields({super.key});
+  final Function(String) onNameChanged;
+  const CustomFields({super.key, required this.onNameChanged});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,9 @@ class CustomFields extends StatelessWidget {
           decoration: InputDecoration(
             hintText: '请输入名称',
           ),
+          onChanged: (value) {
+            onNameChanged(value);
+          },
         ),
         SizedBox(height: 12),
         Container(

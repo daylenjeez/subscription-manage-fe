@@ -26,10 +26,17 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
     _formData = Service.empty();
   }
 
-  //处理服务选择
+  //选择服务
   void _handleServerSelected(int? id) {
     setState(() {
       _formData = _formData.copyWith(id: id, name: null, logo: null);
+    });
+  }
+
+  //修改名称
+  void _handleNameChanged(String name) {
+    setState(() {
+      _formData = _formData.copyWith(name: name);
     });
   }
 
@@ -44,7 +51,8 @@ class _CreateSubscriptionFormState extends State<CreateSubscriptionForm> {
             serverId: _formData.id,
           ),
           SizedBox(height: 12),
-          if (_formData.isCustom) CustomFields(),
+          if (_formData.isCustom)
+            CustomFields(onNameChanged: _handleNameChanged),
         ],
       ),
     );
